@@ -8,6 +8,8 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 import static org.testng.Assert.assertEquals;
 
 public class RegistrationTest extends AuthTest {
@@ -110,5 +112,14 @@ public class RegistrationTest extends AuthTest {
 
         WebElement regBtn = driver.findElement(By.xpath("//input[@value='Register']"));
         regBtn.click();
+
+        try {
+            WebElement confMessageElem = driver.findElement(By.className("confirmation_message"));
+            String confMessage = confMessageElem.getText();
+            assertEquals(confMessage, "Account is created!");
+        }catch (NoSuchElementException e){
+            Assert.fail(String.format(Constants.testRegFormPositiveErrorMessageTemplate,
+                    "Name", "Name", "testEmail@test.org", 1234, 1234));
+        }
     }
 }

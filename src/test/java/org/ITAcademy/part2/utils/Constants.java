@@ -9,4 +9,10 @@ public class Constants {
             "   Email: %s \n" +
             "   Password name: %s \n" +
             "   PasswordConfirm name: %s \n";
+    public static final String testRegFormPositiveErrorMessageTemplate = "Something went wrong and account with this data not created!\n" +
+            "   First name: %s \n" +
+            "   Last name: %s \n" +
+            "   Email: %s \n" +
+            "   Password name: %s \n" +
+            "   PasswordConfirm name: %s \n";
 }

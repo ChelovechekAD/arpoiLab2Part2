@@ -36,8 +36,11 @@ public class LoginTest extends AuthTest {
         WebElement regBtn = driver.findElement(By.xpath("//input[@value='Register']"));
         regBtn.click();
 
-        email = driver.findElement(By.xpath("//td[contains(text(),'Email')]/following-sibling::td/b")).getText();
-        password = driver.findElement(By.xpath("//td[contains(text(),'Password')]/following-sibling::td")).getText();
+        WebElement emailElem = driver.findElement(By.xpath("//td[contains(text(),'Email')]/following-sibling::td/b"));
+        WebElement passwordElem = driver.findElement(By.xpath("//td[contains(text(),'Password')]/following-sibling::td"));
+
+        email = emailElem.getText();
+        password = passwordElem.getText();
     }
 
     @DataProvider(name = "wrongLoginDataProvider")

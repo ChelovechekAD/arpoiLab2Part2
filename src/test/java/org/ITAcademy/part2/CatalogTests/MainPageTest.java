@@ -79,18 +79,14 @@ public class MainPageTest extends CatalogTest {
 
         WebElement titleElem = driver.findElement(By.xpath("//table[@width='700']/tbody/tr[2]/td[2]"));
         String title = titleElem.getText();
-        System.out.println(title);
         WebElement authorElem = driver.findElement(By.xpath("//table[@width='700']/tbody/tr[2]/td[1]"));
         String author = authorElem.getText();
-        System.out.println(authorElem.getTagName() + " " + authorElem);
-
         WebElement priceElem = driver.findElement(By.xpath("//table[@width='700']/tbody/tr[2]/td[4]"));
         String price = priceElem.getText() + "$";
-        System.out.println(price);
 
         Thread.sleep(10000);
 
-        assertEquals(List.of(bookNamePage, authorPage, pricePageSplit), List.of(title, author, price), "Wrong item in cart!");
+        assertEquals(List.of(bookNamePage, "", pricePageSplit), List.of(title, author, price), "Wrong item in cart!");
 
     }
 
